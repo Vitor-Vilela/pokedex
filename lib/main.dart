@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:pokedex_explorer/favorites_provider.dart';
-import 'package:pokedex_explorer/favorites_screen.dart';
-import 'package:pokedex_explorer/poke_model.dart';
-import 'package:pokedex_explorer/pokemon_screen.dart';
-import 'package:pokedex_explorer/utils.dart';
+import 'package:pokedex_explorer/Providers/favorites_provider.dart';
+import 'package:pokedex_explorer/Screens/favorites_screen.dart';
+import 'package:pokedex_explorer/Models/poke_model.dart';
+import 'package:pokedex_explorer/Screens/pokemon_screen.dart';
+import 'package:pokedex_explorer/Utils/utils.dart';
 import 'package:provider/provider.dart';
 
 Future<PokemonList> fetchPokemons({int offset = 0, int limit = 20}) async {

@@ -13,7 +13,7 @@ class PokemonBasic {
 
   factory PokemonBasic.fromJson(Map<String, dynamic> json) {
     final url = json['url'] as String;
-    // extrai o ID da URL: .../pokemon/1/ -> 1
+    // extração id
     final match = RegExp(r'/pokemon/(\d+)/?$').firstMatch(url);
     final id = int.tryParse(match?.group(1) ?? '') ?? 0;
 
@@ -52,8 +52,8 @@ class PokemonDetail {
   final List<String> images;
   final Map<String, int>
   stats; // hp, attack, defense, special-attack, special-defense, speed
-  final double heightMeters; // decímetros -> metros
-  final double weightKg; // hectogramas -> kg
+  final double heightMeters;
+  final double weightKg;
 
   PokemonDetail({
     required this.id,

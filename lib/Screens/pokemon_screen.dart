@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:pokedex_explorer/utils.dart';
-import 'poke_model.dart';
+import 'package:pokedex_explorer/Utils/utils.dart';
+import '../Models/poke_model.dart';
 import 'package:provider/provider.dart';
-import 'favorites_provider.dart';
+import '../Providers/favorites_provider.dart';
 
 Future<PokemonDetail> fetchPokemonDetail(int id) async {
   final url = Uri.parse('https://pokeapi.co/api/v2/pokemon/$id');
@@ -66,7 +66,6 @@ class PokemonDetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Nome + estrela
                 Consumer<FavoritesProvider>(
                   builder: (context, fav, _) {
                     final isFav = fav.isFavorite(p.id);
@@ -99,7 +98,6 @@ class PokemonDetailScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
 
-                // Tipos (chips coloridos)
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
@@ -120,7 +118,6 @@ class PokemonDetailScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // Altura e Peso
                 Row(
                   children: [
                     Expanded(
@@ -156,7 +153,6 @@ class PokemonDetailScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // Fotos
                 if (p.images.isNotEmpty) ...[
                   const Text(
                     'Imagens',
@@ -205,7 +201,6 @@ class PokemonDetailScreen extends StatelessWidget {
                   const SizedBox(height: 16),
                 ],
 
-                // Stats
                 const Text(
                   'Estatísticas',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
